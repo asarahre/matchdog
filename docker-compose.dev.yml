@@ -1,0 +1,46 @@
+version: "3"
+
+services:
+  nginx: 
+    extends:
+      file: docker-compose.base.yml
+      service: nginx
+
+  node:
+    extends:
+      file: docker-compose.base.yml
+      service: node
+
+  php-fpm:
+    extends:
+      file: docker-compose.base.yml
+      service: php-fpm
+
+  mysql:
+    extends:
+      file: docker-compose.base.yml
+      service: mysql
+
+  mailhog:
+    extends:
+      file: docker-compose.base.yml
+      service: mailhog
+
+  redis:
+    extends:
+      file: docker-compose.base.yml
+      service: redis
+
+  worker:
+    extends:
+      file: docker-compose.base.yml
+      service: worker
+
+volumes: 
+  mysql-data:
+
+  redis-data:
+
+networks: 
+  project:
+    driver: bridge

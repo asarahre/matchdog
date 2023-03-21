@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string(column: 'nome', length: 60);
             $table->string(column: 'email', length: 60);
-            $table->string(column: 'telefone', length: 60);
+            $table->string(column: 'telefone', length: 12);
             $table->timestamps();
         });
     }

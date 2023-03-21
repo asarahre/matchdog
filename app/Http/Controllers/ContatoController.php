@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contato;
 use Illuminate\Http\Request;
 
 class ContatoController extends Controller
@@ -19,6 +20,12 @@ class ContatoController extends Controller
 
     public function dados(Request $request)
     {
+        return view('contato', $request->all());
+    }
+
+    public function create(Request $request)
+    {
+        $contato = new Contato();
         return view('contato', $request->all());
     }
 }

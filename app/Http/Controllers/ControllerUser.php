@@ -21,7 +21,7 @@ class ControllerUser extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function post()
     {
         //
     }
@@ -43,7 +43,7 @@ class ControllerUser extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function get($id)
     {
         //
     }
@@ -77,7 +77,7 @@ class ControllerUser extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
         //
     }

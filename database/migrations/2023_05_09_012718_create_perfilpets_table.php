@@ -13,12 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('produtos', function (Blueprint $table) {
+        Schema::create('perfilpets', function (Blueprint $table) {
             $table->id();
-            $table->string(column: 'nome', length: 60);
-            $table->string(column: 'descricao');
-            $table->decimal(column: 'valor', total: 10, places: 2);
+            $table->string('name');
+            $table->string('breed');
+            $table->date('age');
+            $table->string('gender');
+            $table->text('bio');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -29,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('produtos');
+        Schema::dropIfExists('perfilpets');
     }
 };

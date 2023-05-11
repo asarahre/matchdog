@@ -48,6 +48,11 @@ class ControllerPerfilPet extends Controller
         //
     }
 
+    public function getall()
+    {
+        //
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

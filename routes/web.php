@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContatoController;
+use App\Http\Controllers\ControllerPerfilPet;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/contato', ContatoController::class);
+Route::get('/perfil-pet', [ControllerPerfilPet::class, 'getall']);
 
-Route::post('/contato', [ContatoController::class, 'dados']);
+Route::post('/perfil-pet-cadastro', [ControllerPerfilPet::class, 'store']);
+
+Route::get('/user-login', [ControllerPerfilPet::class, 'get']);
+
+Route::post('/user-cadastro', [ControllerPerfilPet::class, 'store']);

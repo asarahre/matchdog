@@ -9,10 +9,10 @@
 </head>
 
 <body>
-    <form action="/user-cadastro" method="post">
-        <input type="text" id="nome" name="nome" placeholder="nome" />
+    <form action="/user/salvar" method="post">
+        <input type="text" id="name" name="name" placeholder="nome" />
         <input type="email" id="email" name="email" placeholder="email" />
-        <input type="password" id="senha" name="senha" placeholder="senha" />
+        <input type="password" id="password" name="password" placeholder="senha" />
         {{ csrf_field() }}
         <input type="submit" value="Enviar" />
     </form>

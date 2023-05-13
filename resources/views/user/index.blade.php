@@ -10,11 +10,13 @@
 
 <body>
     <p>Dados do user</p>
+    @foreach ($user as $us)
     <ul>
-        <li>Nome: {{ $name }}</li>
-        <li>Email: {{ $email }}</li>
-        <li>Senha: {{ $password }}</li>
+        <li>Nome: {{ $us -> name }}</li>
+        <li>Email: {{ $us -> email }}</li>
+        <li>Senha: {{ $us -> password }}</li>
     </ul>
+    @endforeach
 </body>
 
 </html>

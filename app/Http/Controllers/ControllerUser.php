@@ -7,22 +7,30 @@ use Illuminate\Http\Request;
 
 class ControllerUser extends Controller
 {
+
+    public function index()
+    {
+        $user = User::query()->orderBy('id')->get();
+
+        return view('user.index')->with('user', $user);
+    }
+
     public function create()
     {
-        return view('users.create');
+        return view('user.create');
     }
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required',
-        ]);
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $password = $request->input('password');
+        $user = new User();
+        $user->name = $name;
+        $user->email = $email;
+        $user->password = $password;
+        $user->save();
 
-        User::create($validatedData);
-
-        return redirect()->route('users.index')
-            ->with('success', 'User created successfully.');
+        return redirect('/user');
     }
 }

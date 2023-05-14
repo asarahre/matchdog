@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('breed');
             $table->date('age');
             $table->string('gender');
-            $table->text('bio');
+            $table->text('bio')->nullable();
+            $table->string('image')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
 

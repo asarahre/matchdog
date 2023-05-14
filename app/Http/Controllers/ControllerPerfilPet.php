@@ -2,88 +2,42 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Perfilpet;
 use Illuminate\Http\Request;
 
 class ControllerPerfilPet extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+
     public function index()
     {
-        //
+        $perfilpet = Perfilpet::query()->orderBy('id')->get();
+
+        return view('perfilpet.index')->with('perfilpet', $perfilpet);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function post()
+    public function create()
     {
-        //
+        return view('perfilpet.cadastro');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
-    }
+        // dd($request->input('name'));
+        $petProfile = new Perfilpet();
+        $petProfile->name = $request->input('name');
+        $petProfile->breed = $request->input('breed');
+        $petProfile->age = $request->input('age');
+        $petProfile->gender = $request->input('gender');
+        $petProfile->bio = $request->input('bio');
+        if ($request->input('image')) {
+            $image = $request->file('image');
+            $imageBytes = file_get_contents($image->getRealPath());
+            $petProfile->image = $imageBytes;
+        }
+        $petProfile->user()->associate(auth()->user());
+        $petProfile->save();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function get($id)
-    {
-        //
-    }
-
-    public function getall()
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function delete($id)
-    {
-        //
+        return redirect('/user');
     }
 }

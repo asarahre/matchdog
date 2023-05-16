@@ -18,7 +18,8 @@
         <li>age: {{ $perfil -> age  }}</li>
         <li>gender: {{ $perfil -> gender  }}</li>
         <li>bio: {{ $perfil -> bio  }}</li>
-        <li>Image: {{ $perfil -> image  }}</li>
+        <li>Image: {{ $perfil -> imagedecode  }}</li>
+        <img src="{{ asset($perfil->image)}}" alt="Imagem do perfil">
 
     </ul>
     @endforeach

@@ -15,6 +15,9 @@
         {{ csrf_field() }}
         <input type="submit" value="Login" />
     </form>
+
+    <a href="{{ route('usercriar') }}">Criar cadastro</a>
+
 </body>
 
 </html>

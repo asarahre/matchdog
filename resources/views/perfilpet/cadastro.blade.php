@@ -9,12 +9,12 @@
 </head>
 
 <body>
-    <form action="/perfil-pet/salvar" method="post">
+    <form action="/perfil-pet/salvar" method="post" enctype="multipart/form-data">
         <input type="text" id="name" name="name" placeholder="nome do pet" />
         <input type="text" id="breed" name="breed" placeholder="breed" />
         <input type="date" id="age" name="age" placeholder="data nascimento" />
         <input type="text" id="gender" name="gender" placeholder="gender" />
-        <input type="file" id="image" name="image" class="btn btn-success" accept="image/png, image/jpeg" multiple />
+        <input type="file" id="image" name="image" accept="image/png, image/jpeg" />
 
         <input type="text" id="bio" name="bio" placeholder="bio" />
         {{ csrf_field() }}

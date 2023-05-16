@@ -17,10 +17,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('user.login');
 });
 
-Route::get('/perfil-pet', [ControllerPerfilPet::class, 'index']);
+Route::get('/perfil-pet',  [ControllerPerfilPet::class, 'index']);
 
 Route::get('/perfil-pet/criar', [ControllerPerfilPet::class, 'create']);
 
@@ -28,7 +28,7 @@ Route::post('/perfil-pet/salvar', [ControllerPerfilPet::class, 'store']);
 
 Route::get('/user', [ControllerUser::class, 'index']);
 
-Route::get('/user/criar', [ControllerUser::class, 'create']);
+Route::get('/user/criar', [ControllerUser::class, 'create'])->name('usercriar');
 
 Route::post('/user/salvar', [ControllerUser::class, 'store']);
 

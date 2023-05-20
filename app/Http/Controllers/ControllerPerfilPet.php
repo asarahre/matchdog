@@ -33,9 +33,11 @@ class ControllerPerfilPet extends Controller
         $petProfile->gender = $request->input('gender');
         $petProfile->bio = $request->input('bio');
         if ($request->hasFile('image')) {
+
             $file = $request->file('image');
-            $path = Storage::putFile('public', $file);
-            $petProfile->image =  $path;
+            $path = Storage::disk('public')->put('', $file, 'public');
+
+            $petProfile->image =  '/storage/' . $path;
         } else {
             dd($request->input('image'));
         }

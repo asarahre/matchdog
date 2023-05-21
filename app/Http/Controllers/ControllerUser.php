@@ -38,7 +38,7 @@ class ControllerUser extends Controller
         $user->save();
 
         Auth::login($user);
-        return redirect('/user');
+        return redirect('/perfil-pet');
     }
 
     public function login(Request $request)
@@ -53,7 +53,7 @@ class ControllerUser extends Controller
         if ($user) {
             // Autenticação bem-sucedida, redirecionar para a página inicial do aplicativo
             Auth::login($user);
-            return redirect('/user');
+            return redirect('/perfil-pet');
         } else {
             // Autenticação falhou, redirecionar para a página de login com uma mensagem de erro
             return redirect('/user-erro')->with('error', 'Credenciais inválidas');

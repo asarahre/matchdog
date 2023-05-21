@@ -23,6 +23,11 @@ class ControllerPerfilPet extends Controller
         return view('perfilpet.cadastro');
     }
 
+    public function deleteall()
+    {
+        Perfilpet::query()->delete();
+    }
+
     public function store(Request $request)
     {
         // dd($request->input('name'));
@@ -44,6 +49,6 @@ class ControllerPerfilPet extends Controller
         $petProfile->user()->associate(auth()->user());
         $petProfile->save();
 
-        return redirect('/user');
+        return redirect('/perfil-pet');
     }
 }

@@ -22,9 +22,12 @@ Route::get('/', function () {
 
 Route::get('/perfil-pet',  [ControllerPerfilPet::class, 'index']);
 
-Route::get('/perfil-pet/criar', [ControllerPerfilPet::class, 'create']);
+Route::get('/perfil-pet/criar', [ControllerPerfilPet::class, 'create'])->name('perfilpetcriar');;
 
 Route::post('/perfil-pet/salvar', [ControllerPerfilPet::class, 'store']);
+
+//esta fora do padrao apenas para ajudar no desenvolvimeto
+Route::get('/perfil-pet/deleteall', [ControllerPerfilPet::class, 'deleteall']);
 
 Route::get('/user', [ControllerUser::class, 'index']);
 

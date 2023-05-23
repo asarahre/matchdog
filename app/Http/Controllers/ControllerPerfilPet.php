@@ -14,13 +14,17 @@ class ControllerPerfilPet extends Controller
     {
         $perfilpet = Perfilpet::query()->orderBy('id')->get();
 
-
         return view('perfilpet.index')->with('perfilpet', $perfilpet);
     }
 
     public function create()
     {
         return view('perfilpet.cadastro');
+    }
+
+    public function deleteall()
+    {
+        Perfilpet::query()->delete();
     }
 
     public function store(Request $request)
@@ -44,6 +48,6 @@ class ControllerPerfilPet extends Controller
         $petProfile->user()->associate(auth()->user());
         $petProfile->save();
 
-        return redirect('/user');
+        return redirect('/perfil-pet');
     }
 }

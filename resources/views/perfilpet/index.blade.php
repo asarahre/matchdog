@@ -61,26 +61,17 @@
         <swiper-container class="mySwiper" navigation="true">
             @foreach ($perfilpet as $perfil)
             <swiper-slide>
-                <li>Nome: {{ $perfil -> name }}</li>
-                <li>Id dono: {{ $perfil -> user_id }}</li>
-                <li>Raça: {{ $perfil -> breed  }}</li>
-                <li>age: {{ $perfil -> age  }}</li>
-                <li>gender: {{ $perfil -> gender  }}</li>
-                <li>bio: {{ $perfil -> bio  }}</li>
-                <li>Image: {{ $perfil -> imagedecode  }}</li>
+          <div class="block max-w-sm p-6 bg-white border border-red-200 rounded-lg shadow hover:bg-red-100">
+                <div class="text-xl">Nome: {{ $perfil -> name }}</div>
+                <div class="">Id dono: {{ $perfil -> user_id }}</div>
+                <div class="">Raça: {{ $perfil -> breed  }}</div>
+                <div class="">age: {{ $perfil -> age  }}</div>
+                <!-- <div class="">Image: {{ $perfil -> image  }}</div> -->
                 <img class="w-64 h-40" src="{{ asset($perfil->image)}}" alt="Imagem do perfil do pet">
+                <div class="">gender: {{ $perfil -> gender  }}</div>
+                <div class="">bio: {{ $perfil -> bio  }}</div>
+         </div>
             </swiper-slide>
-            <swiper-slide>
-                <li>Nome: {{ $perfil -> name }}</li>
-                <li>Id dono: {{ $perfil -> user_id }}</li>
-                <li>Raça: {{ $perfil -> breed  }}</li>
-                <li>age: {{ $perfil -> age  }}</li>
-                <li>gender: {{ $perfil -> gender  }}</li>
-                <li>bio: {{ $perfil -> bio  }}</li>
-                <li>Image: {{ $perfil -> imagedecode  }}</li>
-                <img class="w-64 h-40" src="{{ asset($perfil->image)}}" alt="Imagem do perfil do pet">
-            </swiper-slide>
-
             @endforeach
         </swiper-container>
 

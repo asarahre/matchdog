@@ -13,19 +13,18 @@
                         <input type="text" name="name" id="name" class="bg-blue-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:outline-none focus:ring focus:ring-blue-300 w-full p-2 " required="">
                     </div>
                     <div class="mt-4">
-                        <label for="breed" class="block mb-2 text-sm font-medium text-gray-900">Breed</label>
+                        <label for="breed" class="block mb-2 text-sm font-medium text-gray-900">Raça</label>
                         <input type="text" name="breed" id="breed" class="bg-blue-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:outline-none focus:ring focus:ring-blue-300 w-full p-2 " required="">
                     </div>
                     <div class="grid md:grid-cols-2 md:gap-6">
                         <div class="mt-4">
-                            <label for="age" class="block mb-2 text-sm font-medium text-gray-900">Age</label>
+                            <label for="age" class="block mb-2 text-sm font-medium text-gray-900">Idade</label>
                             <input type="date" name="age" id="age" class="bg-blue-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:outline-none focus:ring focus:ring-blue-300 w-full p-2 " required="">
                         </div>
                         <div class="mt-4">
-                            <label for="gender" class="block mb-2 text-sm font-medium text-gray-900">Gender</label>
+                            <label for="gender" class="block mb-2 text-sm font-medium text-gray-900">Gênero</label>
                             <select id="gender" name="gender" class="bg-blue-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:outline-none focus:ring focus:ring-blue-300 w-full p-2 ">
-                                <option selected>
-                                    Escolha um sexo</option>
+                                <option selected>Escolha um sexo</option>
                                 <option value="Macho">Macho</option>
                                 <option value="Fêmea">Fêmea</option>
                                 <option value="Outros">Outros</option>
@@ -33,7 +32,7 @@
                         </div>
                     </div>
                     <div class="mt-4">
-                        <label for="image" class="block mb-2 text-sm font-medium text-gray-900">Image</label>
+                        <label for="image" class="block mb-2 text-sm font-medium text-gray-900">Selecione uma foto</label>
                         <input type="file" id="image" name="image" accept="image/png, image/jpeg" class="block cursor-pointer bg-blue-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:outline-none focus:ring focus:ring-blue-300 w-full p-2 " required="">
 
                     </div>

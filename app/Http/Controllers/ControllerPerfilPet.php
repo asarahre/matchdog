@@ -14,7 +14,6 @@ class ControllerPerfilPet extends Controller
     {
         $perfilpet = Perfilpet::query()->orderBy('id')->get();
 
-
         return view('perfilpet.index')->with('perfilpet', $perfilpet);
     }
 

@@ -38,3 +38,7 @@ Route::post('/user/salvar', [ControllerUser::class, 'store']);
 Route::post('/user/login', [ControllerUser::class, 'login']);
 
 Route::get('/user/form', [ControllerUser::class, 'form']);
+
+Route::get('/perfil-pet/{idpetcurti}', [ControllerPerfilPet::class, 'meuspets']);
+
+Route::get('/perfil-pet/{idpetcurti}/match/{idmeupet}', [ControllerPerfilPet::class, 'matchpets']);

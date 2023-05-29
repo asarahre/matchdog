@@ -69,16 +69,10 @@
                 <li>bio: {{ $perfil -> bio  }}</li>
                 <li>Image: {{ $perfil -> imagedecode  }}</li>
                 <img class="w-64 h-40" src="{{ asset($perfil->image)}}" alt="Imagem do perfil do pet">
-            </swiper-slide>
-            <swiper-slide>
-                <li>Nome: {{ $perfil -> name }}</li>
-                <li>Id dono: {{ $perfil -> user_id }}</li>
-                <li>Raça: {{ $perfil -> breed  }}</li>
-                <li>age: {{ $perfil -> age  }}</li>
-                <li>gender: {{ $perfil -> gender  }}</li>
-                <li>bio: {{ $perfil -> bio  }}</li>
-                <li>Image: {{ $perfil -> imagedecode  }}</li>
-                <img class="w-64 h-40" src="{{ asset($perfil->image)}}" alt="Imagem do perfil do pet">
+
+                <a href="/perfil-pet/{{ $perfil -> id }}">
+                    tentar dar match
+                </a>
             </swiper-slide>
 
             @endforeach

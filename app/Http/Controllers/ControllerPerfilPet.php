@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Perfilpet;
+use App\Models\Matches;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class ControllerPerfilPet extends Controller
@@ -12,7 +14,11 @@ class ControllerPerfilPet extends Controller
 
     public function index()
     {
-        $perfilpet = Perfilpet::query()->orderBy('id')->get();
+        $userId = Auth::id();
+
+        $perfilpet = Perfilpet::query()
+            ->whereNot('user_id', $userId)
+            ->orderBy('id')->get();
 
         return view('perfilpet.index')->with('perfilpet', $perfilpet);
     }
@@ -47,6 +53,40 @@ class ControllerPerfilPet extends Controller
         }
         $petProfile->user()->associate(auth()->user());
         $petProfile->save();
+
+        return redirect('/perfil-pet');
+    }
+
+
+    public function meuspets($parametro)
+    {
+        $userId = Auth::id();
+        $perfilPet = Perfilpet::query()->where('user_id', $userId)->orderBy('id')->get();
+
+        return view('perfilpet.meuspets')->with('perfilpet', $perfilPet)->with('petlike', $parametro);
+    }
+
+    public function matchpets($petcurti, $meupet)
+    {
+
+        $matchSelect = Matches::query()
+            ->where('pet_id_liked', $meupet)
+            ->where('pet_id_liked_by', $petcurti)
+            ->orderBy('id')->exists();
+
+        $match = new Matches();
+        $match->pet_id_liked = $petcurti;
+        $match->pet_id_liked_by = $meupet;
+        $match->save();
+
+        $perfilPet = PerfilPet::query()
+            ->with('user')
+            ->find($petcurti);
+
+        if ($matchSelect) {
+            return "deu match
+            <br> entre em contato " . $perfilPet->user->email;
+        }
 
         return redirect('/perfil-pet');
     }

@@ -84,8 +84,7 @@ class ControllerPerfilPet extends Controller
             ->find($petcurti);
 
         if ($matchSelect) {
-            return "deu match
-            <br> entre em contato " . $perfilPet->user->email;
+            return  view('perfilpet.match')->with('perfilpet', $perfilPet);
         }
 
         return redirect('/perfil-pet');

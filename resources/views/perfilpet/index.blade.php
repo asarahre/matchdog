@@ -55,32 +55,40 @@
 </head>
 
 <body class="h-screen w-screen bg-blue-50">
-    <x-nav />
-    <p>Dados do user</p>
-    <div class="mySwiper" navigation="true">
-        <swiper-container class="mySwiper" navigation="true">
-            @foreach ($perfilpet as $perfil)
-            <swiper-slide>
-                <li>Nome: {{ $perfil -> name }}</li>
-                <li>Id dono: {{ $perfil -> user_id }}</li>
-                <li>Raça: {{ $perfil -> breed  }}</li>
-                <li>age: {{ $perfil -> age  }}</li>
-                <li>gender: {{ $perfil -> gender  }}</li>
-                <li>bio: {{ $perfil -> bio  }}</li>
-                <li>Image: {{ $perfil -> imagedecode  }}</li>
-                <img class="w-64 h-40" src="{{ asset($perfil->image)}}" alt="Imagem do perfil do pet">
+    <div class="w-full h-full">
+        <x-nav />
+        <div class="mySwiper flex h-3/4" navigation="true">
+            <swiper-container class="mySwiper flex justify-center w-full h-full" navigation="true">
 
-                <a href="/perfil-pet/{{ $perfil -> id }}">
-                    tentar dar match
-                </a>
-            </swiper-slide>
+                @foreach ($perfilpet as $perfil)
+                <swiper-slide class="flex h-full">
+                    <div class="flex flex-col justify-center">
 
-            @endforeach
-        </swiper-container>
+                        <div class="flex justify-between">
+                            <div class="flex text-2xl font-semibold"> {{ $perfil -> name }}</div>
+                            <div class="flex font-semibold items-end">{{ $perfil -> breed  }}</div>
+                        </div>
+
+                        <img class="w-64 h-40" src="{{ asset($perfil->image)}}" alt="Imagem do perfil do pet">
+                        <div class="flex justify-between ">
+                            <div class="flex">{{ $perfil -> gender  }}</div>
+                            <div class="flex">{{ $perfil -> age  }}</div>
+                        </div>
+                        <div class="mt-4">{{ $perfil -> bio  }}{{ $perfil -> user_id }}</div>
+
+                        <a class="p-4 w-64 text-center rounded-lg bg-blue-500 mt-8" href="/perfil-pet/{{ $perfil -> id }}">
+                            tentar dar match
+                        </a>
+                    </div>
+                </swiper-slide>
+
+                @endforeach
+
+            </swiper-container>
 
 
+        </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
 </body>
 
